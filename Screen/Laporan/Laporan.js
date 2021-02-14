@@ -24,8 +24,8 @@ class Laporan extends Component {
   inputLaporan = () => {
     console.log('Test laporan');
         firestore()
-          .collection('users')
-          .doc(this.state.email)
+          .collection('laporan')
+          .doc(this.state.kejadian)
           .set({
             name: this.state.name,
             kejadian: this.state.kejadian,
