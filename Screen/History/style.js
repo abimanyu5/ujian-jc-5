@@ -1,23 +1,26 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: 'black',
+    header: {
+    backgroundColor: 'gray',
+    color: 'white',
+    fontSize: 20,
+    textAlign: 'center',
+    padding: 30
   },
-  card: {
-    flex: 1,
-    justifyContent: 'flex-end',
+  flatList: {
+    flex: 1
+  },
+  flatlistRow: {
+    borderBottomWidth: 1,
+    borderColor: 'gray',
+    padding: 10
+  },
+  rowHeader: {
+    marginTop: 10,
+    borderBottomWidth: 2,
+    borderColor: 'gray',
     alignItems: 'center',
-  },
-  list: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 20,
-    alignSelf: 'center',
-    margin: 20,
-  },
-})
+    padding: 5
+  }
+});
