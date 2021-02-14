@@ -127,6 +127,12 @@ class Laporan extends Component {
             );
           }}
         </RNCamera>
+         <TouchableOpacity
+                    style={styles.button}
+                    onPress={this.inputLaporan}
+                    >
+                    <Text style={styles.buttonTitle}>laporkan</Text>
+                </TouchableOpacity>
         </KeyboardAwareScrollView>
       </View>
     );
