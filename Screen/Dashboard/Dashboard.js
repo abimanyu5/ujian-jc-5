@@ -91,31 +91,34 @@ class Dashboard extends Component {
   
   }
   
-  clickEventListener =(item) =>{
-    Alert.alert(item.title)
-    switch(item.title){
+clickEventListener = (item) => {
     
-    case "Map" :
-    
-       this.props.navigation.navigate("Maps")
-    break;
-    
-    
+    switch (item.title) {
+      case 'Map':
+        this.props.navigation.navigate('Maps');
+        break;
+      case 'History':
+        this.props.navigation.navigate('History');
+        break;
+      case 'Laporan':
+        this.props.navigation.navigate('Laporan');
+        break;
+      case 'Signout':
+           auth()
+             .signOut()
+             .then(() => {
+               console.log('User signed out!');
+               this.props.navigation.navigate('Login');
+             })
+             .catch((error) => {
+               this.props.navigation.navigate('Register');
+             });
+        break;
+      Alert.alert(item.title);
     }
-  }
+  };
   
-  
-  logout = ()=>{
-  console.log("SignOut")
-    auth()
-      .signOut()
-      .then(() => {
-      console.log('User signed out!')
-      this.props.navigation.navigate("Login")
-      }).catch((error) => {
-        this.props.navigation.navigate("Login")
-      
-      });
+
     
   }
     render() {

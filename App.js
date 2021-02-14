@@ -1,4 +1,4 @@
-/**
+//**
  * Sample React Native App
  * https://github.com/facebook/react-native
  *
@@ -18,7 +18,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Dashboard from './Screen/Dashboard/Dashboard';
 import auth from '@react-native-firebase/auth';
-
+import Maps from './Screen/Maps/Maps';
 
 
 const Stack = createStackNavigator();
@@ -79,13 +79,11 @@ export default class App extends Component {
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Registration" component={Register} />
           <Stack.Screen name="Login" component={Login} />
-         
+          <Stack.Screen name="Maps" component={Maps} />
            </> ) : (
            <>
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Registration" component={Register} />
-         
-          
            </>
            
            )}
