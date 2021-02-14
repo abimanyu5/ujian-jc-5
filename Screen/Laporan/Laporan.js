@@ -9,11 +9,91 @@ import {
   View,
 } from 'react-native';
 
-
 class Laporan extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: '',
+      kejadian: '',
+      alamat: '',
+      keterangan: '',
+    };
+  }
+
+  inputLaporan = () => {
+    console.log('Test laporan');
+        firestore()
+          .collection('users')
+          .doc(this.state.email)
+          .set({
+            name: this.state.name,
+            kejadian: this.state.kejadian,
+            alamat: this.state.alamat,
+            keterangan: this.state.keterangan
+          })
+          .then(() => {
+            this.props.navigation.navigate('Dashboard');
+            console.log('laporan added!');
+          })
+          .catch((error) => {
+            Alert.alert('Maaf Gagal Simpan', JSON.stringify(error));
+          });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   render() {
     return (
       <View style={styles.container}>
+
+       <KeyboardAwareScrollView
+                style={{ flex: 1, width: '100%' }}
+                keyboardShouldPersistTaps="always">
+                <Image
+                    style={styles.logo}
+                    source={require('../../assets/ic_launcher.png')}
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder=' Name'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(name) => this.setState({ name : name})}
+                    
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='kejadian'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(email) => this.setState({ kejadian : kejadian})}
+                   
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholderTextColor="#aaaaaa"
+                    secureTextEntry
+                    placeholder='alamat'
+                    onChangeText={(password) => this.setState({ alamat : alamat})}
+                    
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholderTextColor="#aaaaaa"
+                    secureTextEntry
+                    placeholder='keterangan'
+                    onChangeText={(repassword) => this.setState({ keterangan : keterangan})}
+                    
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
         <RNCamera
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
@@ -47,6 +127,7 @@ class Laporan extends Component {
             );
           }}
         </RNCamera>
+        </KeyboardAwareScrollView>
       </View>
     );
   }
